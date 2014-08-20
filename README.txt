@@ -1,6 +1,5 @@
 Questions/Polls
-
-===
+====
 
 Questions allow users to get answers to their queries from other users on the site.
 

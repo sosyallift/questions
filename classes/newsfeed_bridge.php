@@ -75,7 +75,7 @@ class QUESTIONS_CLASS_NewsfeedBridge
         $params = $event->getParams();
         $language = OW::getLanguage();
 
-        $status = OW::getClassInstance("NEWSFEED_CMP_UpdateStatus", $params['feedAutoId'], $params['entityType'], $params['entityId'], $params['visibility']);
+        $status = new NEWSFEED_CMP_UpdateStatus($params['feedAutoId'], $params['entityType'], $params['entityId'], $params['visibility']);
 
         if ( QUESTIONS_BOL_Service::getInstance()->isCurrentUserCanAsk() )
         {
@@ -87,8 +87,6 @@ class QUESTIONS_CLASS_NewsfeedBridge
             $status = $tabs;
         }
 
-        $event->setData($status);
-        
         return $status;
     }
 

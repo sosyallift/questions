@@ -3,8 +3,6 @@
 class QUESTIONS_Plugin
 {
     const PLUGIN_KEY = 'questions';
-    const PLUGIN_VERSION = 490;
-
     const PRIVACY_ACTION_VIEW_MY_QUESTIONS = 'view_my_questions';
 
     private static $classInstance;
@@ -38,9 +36,11 @@ class QUESTIONS_Plugin
             return;
         }
 
-        $staticUrl = OW::getPluginManager()->getPlugin(self::PLUGIN_KEY)->getStaticUrl();
-        $scriptUrl = $staticUrl . 'script.min.js' . '?' . self::PLUGIN_VERSION;
-        $styleUrl = $staticUrl . 'style.min.css' . '?' . self::PLUGIN_VERSION;
+        $plugin = OW::getPluginManager()->getPlugin(self::PLUGIN_KEY);
+        
+        $staticUrl = $plugin->getStaticUrl();
+        $scriptUrl = $staticUrl . 'script.min.js' . '?' . $plugin->getDto()->build;
+        $styleUrl = $staticUrl . 'style.min.css' . '?' . $plugin->getDto()->build;
 
         $imagesUrl = OW::getThemeManager()->getThemeImagesUrl();
         $css = 'html body div .q_ic_preloader { background-image: url(' . $imagesUrl . 'ajax_preloader_button.gif) };';

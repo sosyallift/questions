@@ -91,7 +91,7 @@ class QUESTIONS_CLASS_NewsfeedBridge
 
             $status = $tabs;
         }
-
+        
         $event->setData($status);
         
         return $status;

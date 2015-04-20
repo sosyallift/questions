@@ -158,6 +158,8 @@ class QUESTIONS_CMP_FeedItem extends OW_Component
             'onclick' => $onClickStr,
             'string' => null
         );
+        
+        $userId = OW::getUser()->getId();
 
         if ( $configs['enable_follow'] )
         {
@@ -166,8 +168,6 @@ class QUESTIONS_CMP_FeedItem extends OW_Component
 
             if ( QUESTIONS_BOL_Service::getInstance()->isCurrentUserCanInteract($this->question) )
             {
-                $userId = OW::getUser()->getId();
-
                 $isFollowing = QUESTIONS_BOL_Service::getInstance()->isFollow($userId, $this->question->id);
                 $onClickStr = $isFollowing
                     ? $jsSelector . '.unfollowQuestion();'

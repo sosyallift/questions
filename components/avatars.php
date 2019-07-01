@@ -61,7 +61,9 @@ class QUESTIONS_CMP_Avatars extends OW_Component
             $this->assign('hiddenUser', $users[$hiddenUser]);
             unset($users[$hiddenUser]);
         }
+   //PHP7/Message: count(): Parameter must be an array or an object that implements Countable File: 
 
+        //////////////////////////////////////////////////////////
         $count = count($users);
         $otherCount = $totalCount - ($count > 3 ? 3 : $count);
         $otherCount = $otherCount < 0 ? 0 : $otherCount;
